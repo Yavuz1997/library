@@ -4,7 +4,6 @@ html{
     font-size: 16px;
     font-family:'Roboto Mono', monospace;
 }
-
 img{
     background: transparent;
     width: 50%;
@@ -45,12 +44,73 @@ label{
     flex-direction: column;
     align-items: center;
     width:25vw;
-    background-color: azure;
+    background-color: #3a3f3e;
+    color:aquamarine;
 }
 
-#library{
+#library-wrapper{
     width:75vw;
     background-color: aquamarine;
     display:flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#library{
+    border: 3px solid #3a3f3e;
+    margin: 5vh 5vw;
+    width:65vw;
+    height:90vh;
+    border-radius: 5px;
+    background-color: #444a49;
+    overflow-y: scroll;
+}
+
+input, select{
+    border-radius: 5px;
+    border-color: azure;
+    color:azure;
+    background-color: #3a3f3e;
+}
+
+input:focus, select:focus{
+    border: 2px solid aquamarine;
+}
+
+#submit{
+    margin-top:15px;
+    font-size: 1rem;
+    padding:8px 10px;
+}
+
+#submit:active{
+    transform: translateY(4px);
+}
+
+#submit:hover{
+    background-color: #555c5b;
+}
+
+input:focus-visible, select:focus-visible{
+    outline:none;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin:5%;
+  }
+td, th {
+    border: 1px solid #3a3f3e;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: azure;
+}
+
+tr:nth-child(odd) {
+    background-color: #9fffed;
 }
