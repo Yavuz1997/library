@@ -11,20 +11,28 @@
 <body>
     <div id="page-wrapper">
         <div id="formWrapper">
-            <div id ="formMenu">
+            <div id="formMenu">
                 <form>
-                    <label for="title">Title :</label>
-                    <input type="text" id="title" required><br><br><br>
-                    <label for="author" >Author:</label>
-                    <input type="text" id="author" required><br><br><br>
-                    <label for="numOfPages">Number of pages:</label>
-                    <input type="number" id="numOfPages" min="1" required><br><br><br>
-                    <label for="readingStatus">Reading Status:</label>
-                    <select id="readingStatus" name="readingStatus">
-                        <option value="finished">Finished</option>
-                        <option value="reading">Currently reading</option>
-                        <option value="notRead">Read later</option>
-                    </select><br><br>
+                    <div class="formStyle">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" required class="formField">
+                    </div>
+                    <div class="formStyle">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" required class="formField">
+                    </div>
+                    <div class="formStyle">
+                        <label for="numOfPages">Number of pages:</label>
+                        <input type="number" id="numOfPages" min="1" required class="formField">
+                    </div>
+                    <div class="formStyle">
+                        <label for="readingStatus">Reading Status:</label>
+                        <select id="readingStatus" name="readingStatus" class="formField">
+                            <option value="finished">Finished</option>
+                            <option value="reading">Currently reading</option>
+                            <option value="notRead">Read later</option>
+                        </select>
+                    </div>
                     <input type="submit" value="Add" onclick="return false" id="submit">
                 </form>
             </div>
@@ -33,7 +41,7 @@
             <h1>LIBRARY</h1>
             <h2>About</h2>
             <p>This is an OdinProject assignment, which allows user to keep track
-                of the books they add to their library. The books can be added through the add button below and 
+                of the books they add to their library. The books can be added through the add button below and
                 they can be removed or have their status changed through the library.
             </p>
             <button id="addButton">Add New</button>

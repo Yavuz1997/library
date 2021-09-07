@@ -78,7 +78,7 @@ label{
     display:none;
 }
 
-#addButton{
+#addButton, #submit{
     border: 3px solid azure;
     border-radius: 15px;
     background:#3a3f3e;
@@ -86,18 +86,19 @@ label{
     margin:auto;
     font-size: 1.5rem;
     transition-duration: 0.2s;
+    cursor: pointer;
 }
 
-#addButton:hover{
+#addButton:hover, #submit:hover{
     border-color: aquamarine;
 }
 
-#addButton:active{
+#addButton:active, #submit:active{
     transform: scale(0.9); 
 }
 
 #formWrapper{
-    display:flex;
+    display:none;
     background-color: transparent;
     width: 100vw;
     height: 100vh;
@@ -116,35 +117,37 @@ label{
 
 }
 
-input, select{
+form{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.formField{
+    
+    margin-top: 15px;
+    width: 100%;
+    height:auto;
+    font-size: 1.2rem;
     border-radius: 5px;
     border-color: azure;
     color:azure;
     background-color: #3a3f3e;
 }
 
-input:focus, select:focus{
+
+.formField:focus{
     border: 2px solid aquamarine;
 }
 
-#submit{
-    display: block;
-    margin: 0 auto;
-    margin-top:15px;
-    font-size: 1rem;
-    padding:8px 10px;
-    transition-duration: 0.2s;
-}
 
-#submit:active{
-    transform: translateY(4px);
-}
-
-#submit:hover{
-    background-color: #555c5b;
-}
-
-input:focus-visible, select:focus-visible{
+.formField:focus-visible{
     outline:none;
 }
 
