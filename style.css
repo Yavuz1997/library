@@ -22,6 +22,12 @@ h1{
 h2{
     font-size: 1.2rem;
     margin-bottom: 4vh;
+    text-decoration: underline;
+}
+p{
+    margin:25px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 #statusTitle{
@@ -64,6 +70,50 @@ label{
     border-radius: 5px;
     background-color: #444a49;
     overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#library::-webkit-scrollbar{
+    display:none;
+}
+
+#addButton{
+    border: 3px solid azure;
+    border-radius: 15px;
+    background:#3a3f3e;
+    color:aquamarine;
+    margin:auto;
+    font-size: 1.5rem;
+    transition-duration: 0.2s;
+}
+
+#addButton:hover{
+    border-color: aquamarine;
+}
+
+#addButton:active{
+    transform: scale(0.9); 
+}
+
+#formWrapper{
+    display:flex;
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    z-index: 2;
+    backdrop-filter: blur(6px);
+}
+
+#formMenu{
+    background-color: #3a3f3e;
+    padding:40px;
+    border-radius: 15px;
+    border:3px solid azure;
+    color:aquamarine;
+    margin:auto;
+
 }
 
 input, select{
@@ -78,9 +128,12 @@ input:focus, select:focus{
 }
 
 #submit{
+    display: block;
+    margin: 0 auto;
     margin-top:15px;
     font-size: 1rem;
     padding:8px 10px;
+    transition-duration: 0.2s;
 }
 
 #submit:active{
@@ -102,15 +155,11 @@ table {
     margin:5%;
   }
 td, th {
-    border: 1px solid #3a3f3e;
+    border: 1px solid azure;
+    color:aquamarine;
     text-align: left;
     padding: 8px;
 }
-  
-tr:nth-child(even) {
-    background-color: azure;
-}
-
-tr:nth-child(odd) {
-    background-color: #9fffed;
+tr {
+    background-color: #3a3f3e;
 }

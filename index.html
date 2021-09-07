@@ -10,24 +10,33 @@
 
 <body>
     <div id="page-wrapper">
+        <div id="formWrapper">
+            <div id ="formMenu">
+                <form>
+                    <label for="title">Title :</label>
+                    <input type="text" id="title" required><br><br><br>
+                    <label for="author" >Author:</label>
+                    <input type="text" id="author" required><br><br><br>
+                    <label for="numOfPages">Number of pages:</label>
+                    <input type="number" id="numOfPages" min="1" required><br><br><br>
+                    <label for="readingStatus">Reading Status:</label>
+                    <select id="readingStatus" name="readingStatus">
+                        <option value="finished">Finished</option>
+                        <option value="reading">Currently reading</option>
+                        <option value="notRead">Read later</option>
+                    </select><br><br>
+                    <input type="submit" value="Add" onclick="return false" id="submit">
+                </form>
+            </div>
+        </div>
         <div id="addmenu">
             <h1>LIBRARY</h1>
-            <h2>Add to your library:</h2>
-            <form>
-                <label for="title">Title :</label>
-                <input type="text" id="title"><br><br><br>
-                <label for="author">Author:</label>
-                <input type="text" id="author"><br><br><br>
-                <label for="numOfPages">Number of pages:</label>
-                <input type="number" id="numOfPages" min="1"><br><br><br>
-                <label for="readingStatus">Reading Status:</label>
-                <select id="readingStatus" name="readingStatus">
-                    <option value="read">Finished</option>
-                    <option value="reading">Currently reading</option>
-                    <option value="notRead">Read later</option>
-                </select><br><br>
-            </form>
-            <input type="submit" value="Submit" id="submit">
+            <h2>About</h2>
+            <p>This is an OdinProject assignment, which allows user to keep track
+                of the books they add to their library. The books can be added through the add button below and 
+                they can be removed or have their status changed through the library.
+            </p>
+            <button id="addButton">Add New</button>
             <img src="imgs/books.png">
         </div>
         <div id="library-wrapper">
@@ -38,11 +47,13 @@
                         <th>Author</th>
                         <th>#Pages</th>
                         <th>Status</th>
+                        <th></th>
                     <tr>
                         <td>Alfreds Futterkiste</td>
                         <td>Maria Anders</td>
                         <td>53</td>
                         <td>test</td>
+                        <td></td>
                     </tr>
 
                 </table>
