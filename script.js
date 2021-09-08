@@ -52,12 +52,15 @@ function updateTable(book){
     bookTable.appendChild(tableLine);
     let tableTitle = document.createElement("td");
     tableTitle.textContent = book.title;
+    tableTitle.classList.add("titleCell");
     tableLine.appendChild(tableTitle);
     let tableAuthor = document.createElement("td");
     tableAuthor.textContent = book.author;
+    tableAuthor.classList.add("authorCell");
     tableLine.appendChild(tableAuthor);
     let tablePages = document.createElement("td");
     tablePages.textContent = book.numOfPages;
+    tablePages.classList.add("pagesCell");
     tableLine.appendChild(tablePages);
     let tableReadStatus = document.createElement("td");
     tableReadStatus.textContent = book.readStatus;
