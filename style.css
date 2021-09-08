@@ -78,7 +78,7 @@ label{
     display:none;
 }
 
-#addButton, #submit{
+#addButton, #submit, #resetButton{
     border: 3px solid azure;
     border-radius: 15px;
     background:#3a3f3e;
@@ -89,11 +89,19 @@ label{
     cursor: pointer;
 }
 
-#addButton:hover, #submit:hover{
+#formButtons{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin:15px;
+}
+
+#addButton:hover, #submit:hover, #resetButton:hover{
     border-color: aquamarine;
 }
 
-#addButton:active, #submit:active{
+#addButton:active, #submit:active, #resetButton:active{
     transform: scale(0.9); 
 }
 
