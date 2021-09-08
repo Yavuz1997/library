@@ -9,7 +9,7 @@ function Book(title, author, numOfPages, readStatus) {
 Book.prototype.info = function () {
     console.log("Title: " + this.title + " Author: " + this.author + " Pages: " + this.numOfPages + " Status: " + this.readStatus);
 };
-const submit = document.querySelector("#submit");
+const addBook = document.querySelector("#addBook");
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#numOfPages");
@@ -34,12 +34,14 @@ formWindow.addEventListener("click", e => {
     
 });
 
-submit.addEventListener("click", () => {
-    let book = new Book(title.value, author.value, pages.value, readingStatus.value);
+addBook.addEventListener("click", () => {
+    if((title.value !== "") && (author.value !== "") && (pages.value !== "")){
+        let book = new Book(title.value, author.value, pages.value, readingStatus.value);
     books.push(book);
     for (let i = 0; i < books.length; i++) {
         books[i].info();
     }
     theForm.reset();
     formWindow.style.display = "none";
+    }
 });
