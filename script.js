@@ -16,10 +16,17 @@ const pages = document.querySelector("#numOfPages");
 const readingStatus = document.querySelector("#readingStatus");
 const addBtn = document.querySelector("#addButton");
 const formWindow = document.querySelector("#formWrapper");
+const theForm = document.querySelector("#theForm");
 
 addBtn.addEventListener("click",() => {
-    console.log("hey");
     formWindow.style.display = "flex";
+});
+
+formWindow.addEventListener("click", e => {
+    if(e.target == e.currentTarget){
+        formWindow.style.display = "none";
+    }
+    
 });
 
 submit.addEventListener("click", () => {
@@ -28,5 +35,6 @@ submit.addEventListener("click", () => {
     for (let i = 0; i < books.length; i++) {
         books[i].info();
     }
+    theForm.reset();
     formWindow.style.display = "none";
 });
