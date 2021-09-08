@@ -61,6 +61,7 @@ function updateTable(book){
     tableLine.appendChild(tablePages);
     let tableReadStatus = document.createElement("td");
     tableReadStatus.textContent = book.readStatus;
+    tableReadStatus.classList.add("statusCell");
     tableLine.appendChild(tableReadStatus);
     let deleteBtnH = document.createElement("td");
     deleteBtnH.classList.add("deleteCell");
