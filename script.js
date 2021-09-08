@@ -17,6 +17,11 @@ const readingStatus = document.querySelector("#readingStatus");
 const addBtn = document.querySelector("#addButton");
 const formWindow = document.querySelector("#formWrapper");
 const theForm = document.querySelector("#theForm");
+const resetButton = document.querySelector("#resetButton");
+
+resetButton.addEventListener("click",()=>{
+    theForm.reset();
+});
 
 addBtn.addEventListener("click",() => {
     formWindow.style.display = "flex";
