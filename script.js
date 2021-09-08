@@ -1,17 +1,15 @@
 let books = [];
 
-function Book(title, author, numOfPages, readStatus, bookID) {
+function Book(title, author, numOfPages, readStatus) {
     this.title = title;
     this.author = author;
     this.numOfPages = numOfPages;
     this.readStatus = readStatus;
-    this.bookID = bookID;
 }
 Book.prototype.info = function () {
     console.log("Title: " + this.title + " Author: " + this.author + " Pages: " + this.numOfPages + " Status: " + this.readStatus + " ID: " + this.bookID);
 };
 
-let IDcounter = 0;
 const addBook = document.querySelector("#addBook");
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
@@ -38,14 +36,13 @@ formWindow.addEventListener("click", e => {
     
 });
 
-addBook.addEventListener("click", () => {
+addBook.addEventListener("click", (e) => {
     if((title.value !== "") && (author.value !== "") && (pages.value !== "")){
-        let book = new Book(title.value, author.value, pages.value, readingStatus.value, IDcounter++);
+        let book = new Book(title.value, author.value, pages.value, readingStatus.value);
     books.push(book);
     updateTable(book);
-    for (let i = 0; i < books.length; i++) {
-        books[i].info();
-    }
+    e.preventDefault();
+    formWindow.style.display = "none";
     theForm.reset();
     }
 });
@@ -65,4 +62,15 @@ function updateTable(book){
     let tableReadStatus = document.createElement("td");
     tableReadStatus.textContent = book.readStatus;
     tableLine.appendChild(tableReadStatus);
+    let deleteBtnH = document.createElement("td");
+    deleteBtnH.classList.add("deleteCell");
+    tableLine.appendChild(deleteBtnH);
+    let deleteBtn = document.createElement("input");
+    deleteBtn.classList.add("delete");
+    deleteBtn.type = "image";
+    deleteBtn.src = "imgs/trash.png";
+    deleteBtnH.appendChild(deleteBtn);
+    deleteBtn.addEventListener("click", () => {
+        tableLine.remove();
+    });
 }
