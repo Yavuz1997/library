@@ -30,7 +30,22 @@ html{
 }
 
 .deleteCell{
-    width:40px;
+    width:6%;
+}
+.statusCell{
+    width:10%;
+}
+
+.pagesCell{
+    width:15%;
+}
+
+.authorCell{
+    width:30%;
+}
+
+.titleCell{
+    width:39%;
 }
 
 h1{
