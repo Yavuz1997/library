@@ -91,6 +91,7 @@ label{
     width:25vw;
     background-color: #3a3f3e;
     color:aquamarine;
+    border-right: 2px solid aquamarine;
 }
 
 #library-wrapper{
@@ -99,15 +100,17 @@ label{
     display:flex;
     align-items: center;
     justify-content: center;
+    background-image: url(imgs/libBackground.jpg);
+    background-size: cover;
 }
 
 #library{
-    border: 3px solid #3a3f3e;
+    border: 3px solid aquamarine;
     margin: 5vh 5vw;
     width:65vw;
     height:90vh;
     border-radius: 5px;
-    background-color: #444a49;
+    background-color: #444a49a2;
     overflow-y: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
