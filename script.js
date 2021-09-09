@@ -7,7 +7,7 @@ function Book(title, author, numOfPages, readStatus) {
     this.readStatus = readStatus;
 }
 Book.prototype.info = function () {
-    console.log("Title: " + this.title + " Author: " + this.author + " Pages: " + this.numOfPages + " Status: " + this.readStatus + " ID: " + this.bookID);
+    console.log("Title: " + this.title + " Author: " + this.author + " Pages: " + this.numOfPages + " Status: " + this.readStatus);
 };
 
 const addBook = document.querySelector("#addBook");
@@ -62,10 +62,29 @@ function updateTable(book){
     tablePages.textContent = book.numOfPages;
     tablePages.classList.add("pagesCell");
     tableLine.appendChild(tablePages);
+
+
     let tableReadStatus = document.createElement("td");
-    tableReadStatus.textContent = book.readStatus;
     tableReadStatus.classList.add("statusCell");
     tableLine.appendChild(tableReadStatus);
+    let statusBtn = document.createElement("button");
+    statusBtn.textContent = book.readStatus;
+    statusBtn.classList.add("statusBtn");
+    tableReadStatus.appendChild(statusBtn);
+
+    statusBtn.addEventListener("click",() => {
+        if(statusBtn.textContent == "Reading"){
+            statusBtn.textContent = "Finished";
+        } else
+        if(statusBtn.textContent == "Finished"){
+            statusBtn.textContent = "Later";
+        } else
+        if(statusBtn.textContent == "Later"){
+            statusBtn.textContent = "Reading";
+        }
+    });
+
+
     let deleteBtnH = document.createElement("td");
     deleteBtnH.classList.add("deleteCell");
     tableLine.appendChild(deleteBtnH);
@@ -74,7 +93,11 @@ function updateTable(book){
     deleteBtn.type = "image";
     deleteBtn.src = "imgs/trash.png";
     deleteBtnH.appendChild(deleteBtn);
+    let current = book;
+    
     deleteBtn.addEventListener("click", () => {
+        let indexOfRemoved = books.indexOf(current);
+        books.splice(indexOfRemoved, 1);
         tableLine.remove();
     });
 }
