@@ -21,33 +21,41 @@ const theForm = document.querySelector("#theForm");
 const resetButton = document.querySelector("#resetButton");
 const bookTable = document.querySelector("#bookTable");
 
-resetButton.addEventListener("click",()=>{
+if (localStorage.getItem("all_books") !== null) {
+    books = JSON.parse(localStorage.getItem('all_books'));
+    localStorage.clear();
+    for (let i = 0; i < books.length; i++) {
+        updateTable(books[i]);
+    }
+}
+
+resetButton.addEventListener("click", () => {
     theForm.reset();
 });
 
-addBtn.addEventListener("click",() => {
+addBtn.addEventListener("click", () => {
     formWindow.style.display = "flex";
 });
 
 formWindow.addEventListener("click", e => {
-    if(e.target == e.currentTarget){
+    if (e.target == e.currentTarget) {
         formWindow.style.display = "none";
     }
-    
+
 });
 
 addBook.addEventListener("click", (e) => {
-    if((title.value !== "") && (author.value !== "") && (pages.value !== "")){
+    if ((title.value !== "") && (author.value !== "") && (pages.value !== "")) {
         let book = new Book(title.value, author.value, pages.value, readingStatus.value);
-    books.push(book);
-    updateTable(book);
-    e.preventDefault();
-    formWindow.style.display = "none";
-    theForm.reset();
+        books.push(book);
+        updateTable(book);
+        e.preventDefault();
+        formWindow.style.display = "none";
+        theForm.reset();
     }
 });
 
-function updateTable(book){
+function updateTable(book) {
     let tableLine = document.createElement("tr");
     bookTable.appendChild(tableLine);
     let tableTitle = document.createElement("td");
@@ -62,8 +70,6 @@ function updateTable(book){
     tablePages.textContent = book.numOfPages;
     tablePages.classList.add("pagesCell");
     tableLine.appendChild(tablePages);
-
-
     let tableReadStatus = document.createElement("td");
     tableReadStatus.classList.add("statusCell");
     tableLine.appendChild(tableReadStatus);
@@ -71,20 +77,20 @@ function updateTable(book){
     statusBtn.textContent = book.readStatus;
     statusBtn.classList.add("statusBtn");
     tableReadStatus.appendChild(statusBtn);
-
-    statusBtn.addEventListener("click",() => {
-        if(statusBtn.textContent == "Reading"){
+    statusBtn.addEventListener("click", () => {
+        if (statusBtn.textContent == "Reading") {
             statusBtn.textContent = "Finished";
+            book.readStatus = "Finished";
         } else
-        if(statusBtn.textContent == "Finished"){
-            statusBtn.textContent = "Later";
-        } else
-        if(statusBtn.textContent == "Later"){
-            statusBtn.textContent = "Reading";
-        }
+            if (statusBtn.textContent == "Finished") {
+                statusBtn.textContent = "Later";
+                book.readStatus = "Later";
+            } else
+                if (statusBtn.textContent == "Later") {
+                    statusBtn.textContent = "Reading";
+                    book.readStatus = "Reading";
+                }
     });
-
-
     let deleteBtnH = document.createElement("td");
     deleteBtnH.classList.add("deleteCell");
     tableLine.appendChild(deleteBtnH);
@@ -93,11 +99,16 @@ function updateTable(book){
     deleteBtn.type = "image";
     deleteBtn.src = "imgs/trash.png";
     deleteBtnH.appendChild(deleteBtn);
-    let current = book;
-    
     deleteBtn.addEventListener("click", () => {
-        let indexOfRemoved = books.indexOf(current);
+        let indexOfRemoved = books.indexOf(book);
         books.splice(indexOfRemoved, 1);
         tableLine.remove();
     });
+}
+
+window.onbeforeunload = closingCode;
+function closingCode() {
+    localStorage.setItem("all_books", JSON.stringify(books));
+    //localStorage.clear();
+    return null;
 }
