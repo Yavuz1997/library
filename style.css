@@ -13,8 +13,11 @@ html{
 }
 
 .delete{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
     background: transparent;
-    width:100%;
+    width:35px;
     height:auto;
     border-radius: 50%;
     transition-duration: 0.3s;
@@ -205,6 +208,7 @@ td, th {
     border: 1px solid azure;
     color:aquamarine;
     text-align: left;
+    vertical-align: middle;
     padding: 8px;
 }
 tr {
